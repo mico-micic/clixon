@@ -223,6 +223,7 @@ ifIpAddr  OBJECT-TYPE
     DESCRIPTION
             "IP address example."
     ::= { clixonExampleScalars 13 }
+
 bitTest  OBJECT-TYPE
         SYNTAX  BITS {
                     bit00 (0),
@@ -267,6 +268,14 @@ bitTest  OBJECT-TYPE
     DESCRIPTION
             "Simple bits value used for testing."
     ::= { clixonExampleScalars 14 }
+
+clixonExampleStringNoDefault OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+    "String with no default value defined"
+    ::= { clixonExampleScalars 15 }
 
 --
 --  Example Tables

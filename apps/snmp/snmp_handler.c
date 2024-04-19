@@ -291,6 +291,13 @@ snmp_scalar_get(clixon_handle               h,
             goto done;
         }
     }
+    else if (x != NULL){
+        /* 
+         * Special case if there is a XML node but no body or default value. That means that
+         * the value string is empty and we should not return SNMP_NOSUCHINSTANCE.
+         */
+        xmlstr = strdup("");
+    }
     else{
         if ((ret = netsnmp_request_set_error(request, SNMP_NOSUCHINSTANCE)) != SNMPERR_SUCCESS){
             clixon_err(OE_SNMP, ret, "netsnmp_request_set_error");
